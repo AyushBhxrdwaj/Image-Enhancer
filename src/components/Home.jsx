@@ -5,11 +5,18 @@ const Home = () => {
     const [uploadImg, setuploadImg] = useState(null);
     const [enhancedImg, setenhancedImg] = useState(null);
     const [loading,setloading]=useState(false);
+    
+
+    const uploadImageHandler=(file)=>{
+        setuploadImg(URL.createObjectURL(file))
+        setloading(true)
+
+    }
 
     return (
         <>
 
-            <Upload />
+            <Upload uploadImageHandler={uploadImageHandler} />
             <Preview loading={loading} uploaded={uploadImg} enhanced={enhancedImg} />
         </>
     )

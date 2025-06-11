@@ -1,8 +1,11 @@
 import React from 'react'
 
-const Upload = () => {
+const Upload = (props) => {
   const showImgHandler=(e)=>{
-   console.log(e.target.file) 
+    const file=e.target.files[0]
+    if(file){
+      props.uploadImageHandler(file)
+    }
   }
   return (
     <div className="bg-white w-1/4 text-lg shadow-lg rounded-xl max-w-2xl p-6">
